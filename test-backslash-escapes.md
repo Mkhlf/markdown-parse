@@ -10,7 +10,9 @@
 
 [Link body has close paren quad unescaped](/quad_\\\\)bracket)
 
-\[ sup ](fake_link1)
+[Link body has close paren 6 unescaped](/quad_\\\\\\)bracket)
+
+\\\[ sup ](fake_link1)
 
 [sup]\(fake_link2)
 
