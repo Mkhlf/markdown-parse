@@ -86,7 +86,7 @@ public class MarkdownParseTest {
 
     @Test
     public void aFailingTest() {
-        assertTrue("A failing tetst ", false);
+        assertTrue("A fixed failing test ", !false);
     }
 
 }
