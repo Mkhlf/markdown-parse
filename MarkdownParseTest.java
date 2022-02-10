@@ -13,6 +13,10 @@ public class MarkdownParseTest {
         assertEquals(2, 1 + 1);
     }
 
+    // newline
+    // newline
+    // new
+
     public String readFile(String file) throws IOException {
         Path fileName = Path.of(file);
         String contents = Files.readString(fileName);
