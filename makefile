@@ -11,4 +11,5 @@ MarkdownParseTest.class: MarkdownParseTest.java MarkdownParse.class
 TryCommonMark.class: TryCommonMark.java
 	javac -g -cp $(CLASSPATH) TryCommonMark.java
 
-	
+testAll: MarkdownParse.class
+	java -cp $(CLASSPATH) MarkdownParse test-files/
