@@ -4,7 +4,7 @@ runall : MarkdownParse.class MarkdownParseTest.class
 	java -cp $(CLASSPATH) org.junit.runner.JUnitCore MarkdownParseTest
 
 MarkdownParse.class : MarkdownParse.java
-	javac MarkdownParse.java
+	javac -cp $(CLASSPATH) MarkdownParse.java
 MarkdownParseTest.class: MarkdownParseTest.java MarkdownParse.class
 	javac -cp $(CLASSPATH) MarkdownParseTest.java
 
