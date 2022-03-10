@@ -8,14 +8,6 @@ import java.util.List;
 
 public class MarkdownParseTest {
 
-    @Test
-    public void addition() {
-        assertEquals(2, 1 + 1);
-    }
-
-    // newline
-    // newline
-    // new
 
     public String readFile(String file) throws IOException {
         Path fileName = Path.of(file);
@@ -88,5 +80,24 @@ public class MarkdownParseTest {
 
     }
 
+    @Test
+    public void testSnippet1() throws IOException {
+        String contents = Files.readString(Path.of("./lab8_Snippet_1.md"));
+        List<String> expect = List.of("`google.com", "google.com", "ucsd.edu");
+        assertEquals(expect, MarkdownParse.getLinks(contents));
+    }
 
+    @Test
+    public void testSnippet2() throws IOException {
+        String contents = Files.readString(Path.of("./lab8_Snippet_2.md"));
+        List<String> expect = List.of("a.com", "a.com(())", "example.com");
+        assertEquals(expect, MarkdownParse.getLinks(contents));
+    }
+
+    @Test
+    public void testSnippet3() throws IOException {
+        String contents = Files.readString(Path.of("./lab8_Snippet_3.md"));
+        List<String> expect = List.of("https://ucsd-cse15l-w22.github.io/");
+        assertEquals(expect, MarkdownParse.getLinks(contents));
+    }
 }
