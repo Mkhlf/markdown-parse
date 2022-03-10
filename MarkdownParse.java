@@ -50,18 +50,17 @@ public class MarkdownParse {
 
     }
 
-        public static Map<String, List<String>> getLinks(File dirOrFile) throws IOException {
+    public static Map<String, List<String>> getLinks(File dirOrFile) throws IOException {
         Map<String, List<String>> result = new HashMap<>();
-        if(dirOrFile.isDirectory()) {
-            for(File f: dirOrFile.listFiles()) {
+        if (dirOrFile.isDirectory()) {
+            for (File f : dirOrFile.listFiles()) {
                 result.putAll(getLinks(f));
             }
             return result;
-        }
-        else {
+        } else {
             Path p = dirOrFile.toPath();
             int lastDot = p.toString().lastIndexOf(".");
-            if(lastDot == -1 || !p.toString().substring(lastDot).equals(".md")) {
+            if (lastDot == -1 || !p.toString().substring(lastDot).equals(".md")) {
                 return result;
             }
             ArrayList<String> links = getLinks(Files.readString(p));
@@ -73,6 +72,14 @@ public class MarkdownParse {
     public static void main(String[] args) throws IOException {
         File fileName1 = new File(args[0]);
         Map<String, List<String>> maplinks = getLinks(fileName1);
-        System.out.println(maplinks);
+        // maplinks.forEach();
+        for (Map.Entry<String, List<String>> entry : maplinks.entrySet()) {
+
+            System.out.println(entry.getKey() + " : " + entry.getValue());
+        }
+        // for (int i = 0; i < maplinks.size(); i++) {
+
+        // }
+        // System.out.println(maplinks);
     }
 }
